@@ -1,20 +1,43 @@
-require "formula"
+require "language/go"
 
 class Aurl < Formula
   homepage "https://github.com/classmethod-aws/aurl"
-  version '0.2.1'
-  if Hardware.is_64_bit?
-    url "https://github.com/classmethod-aws/aurl/releases/download/0.2.1/aurl_0.2.1_darwin_amd64.zip"
-    sha1 "244f245b8a67ae744906c7ce9cb9d13647618085"
-  else
-    url "https://github.com/classmethod-aws/aurl/releases/download/0.2.1/aurl_0.2.1_darwin_386.zip"
-    sha1 "bc0643897b6807b42474381a0b882f8a665b6a1e"
+  url "https://github.com/classmethod-aws/aurl.git", :tag => "0.3", :revision => "f4b6274a93ef1892b2bf39d38d539d7794def7ab"
+  version "0.3"
+
+  head "https://github.com/classmethod-aws/aurl.git", :branch => "develop"
+
+  depends_on "go" => :build
+
+  go_resource "github.com/codegangsta/cli" do
+    url "https://github.com/codegangsta/cli.git", :revision => "9b2bd2b3489748d4d0a204fa4eb2ee9e89e0ebc6"
   end
 
-  depends_on :arch => :intel
+  go_resource "github.com/grategames/ini" do
+    url "https://github.com/grategames/ini.git", :revision => "860b5140bc02fe9438df6526fed2348b2b3f192a"
+  end
+
+  go_resource "github.com/rakyll/goini" do
+    url "https://github.com/rakyll/goini.git", :revision => "907cca0f578a5316fb864ec6992dc3d9730ec58c"
+  end
+
+  go_resource "golang.org/x/net" do
+    url "https://go.googlesource.com/net.git", :revision => "7dbad50ab5b31073856416cdcfeb2796d682f844"
+  end
+
+  go_resource "golang.org/x/oauth2" do
+    url "https://go.googlesource.com/oauth2.git", :revision => "11c60b6f71a6ad48ed6f93c65fa4c6f9b1b5b46a"
+  end
 
   def install
-    bin.install 'aurl'
+    ENV["GOPATH"] = buildpath
+    mkdir_p buildpath/"src/github.com/classmethod-aws/"
+    ln_sf buildpath, buildpath/"src/github.com/classmethod-aws/aurl"
+    Language::Go.stage_deps resources, buildpath/"src"
+
+    # Build and install
+    system "go", "build", "-o", "aurl"
+    bin.install "aurl"
   end
 
   def caveats
