@@ -2,8 +2,8 @@ require "language/go"
 
 class Aurl < Formula
   homepage "https://github.com/classmethod-aws/aurl"
-  url "https://github.com/classmethod-aws/aurl.git", :tag => "0.3", :revision => "f4b6274a93ef1892b2bf39d38d539d7794def7ab"
-  version "0.3"
+  url "https://github.com/classmethod-aws/aurl.git", :tag => "0.3.1", :revision => "b71c9a787f49ff3bddd3199f7aaf9840703e9b9e"
+  version "0.3.1"
 
   head "https://github.com/classmethod-aws/aurl.git", :branch => "develop"
 
@@ -19,6 +19,10 @@ class Aurl < Formula
 
   go_resource "github.com/rakyll/goini" do
     url "https://github.com/rakyll/goini.git", :revision => "907cca0f578a5316fb864ec6992dc3d9730ec58c"
+  end
+
+  go_resource "github.com/mitchellh/go-homedir" do
+    url "https://github.com/mitchellh/go-homedir.git", :revision => "1f6da4a72e57d4e7edd4a7295a585e0a3999a2d4"
   end
 
   go_resource "golang.org/x/net" do
