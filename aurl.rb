@@ -2,8 +2,7 @@ require "language/go"
 
 class Aurl < Formula
   homepage "https://github.com/classmethod-aws/aurl"
-  url "https://github.com/classmethod-aws/aurl.git", :tag => "0.3.1", :revision => "b71c9a787f49ff3bddd3199f7aaf9840703e9b9e"
-  version "0.3.1"
+  url "https://github.com/classmethod-aws/aurl.git", :tag => "0.3.2", :revision => "47db69480cbfcccd85151a1844dc5c27b42eee55"
 
   head "https://github.com/classmethod-aws/aurl.git", :branch => "develop"
 
