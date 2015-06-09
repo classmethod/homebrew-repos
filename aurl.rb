@@ -2,7 +2,7 @@ require "language/go"
 
 class Aurl < Formula
   homepage "https://github.com/classmethod-aws/aurl"
-  url "https://github.com/classmethod-aws/aurl.git", :tag => "0.3.2", :revision => "47db69480cbfcccd85151a1844dc5c27b42eee55"
+  url "https://github.com/classmethod-aws/aurl.git", :tag => "0.4", :revision => "8fbff6ef9b4113dae2082c2e7bed0ae8a26c2f31"
 
   head "https://github.com/classmethod-aws/aurl.git", :branch => "develop"
 
@@ -41,6 +41,11 @@ class Aurl < Formula
     # Build and install
     system "go", "build", "-o", "aurl"
     bin.install "aurl"
+  end
+
+  test do
+    ENV["LC_ALL"] = "en_US.UTF-8"
+    system "#{bin}/aurl", "-v"
   end
 
   def caveats
