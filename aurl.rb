@@ -10,15 +10,14 @@ class Aurl < Formula
   depends_on "glide" => :build
 
   def install
-    (buildpath + "src/github.com/classmethod/aurl").install Dir[buildpath/"*"]
-
-    cd "src/github.com/classmethod/aurl" do
-      ENV["GOPATH"] = buildpath
+    ENV["GOPATH"] = buildpath
+    ENV["GLIDE_HOME"] = HOMEBREW_CACHE/"glide_home/#{name}"
+    dir = buildpath/"src/github.com/classmethod/aurl"
+    dir.install Dir["*"]
+    cd dir do
       system "glide", "install"
-      system "go", "build", "-o", "aurl"
+      system "go", "build", "-o", bin/"aurl"
     end
-    
-    bin.install "src/github.com/classmethod/aurl/aurl"
   end
 
   test do
