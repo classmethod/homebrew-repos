@@ -2,7 +2,8 @@ require "language/go"
 
 class Aurl < Formula
   homepage "https://github.com/classmethod/aurl"
-  url "https://github.com/classmethod/aurl.git", :tag => "1.0.1", :revision => "f9df44f23bfe997f8b1ebd15f5d0ffe00456898d"
+  url "https://github.com/classmethod/aurl.git", :branch => "develop", :revision => "ccfc067cf6e9e8b161368ca8888a7a2138abc008"
+  version "1.1.0-SNAPSHOT-ccfc067"
 
   head "https://github.com/classmethod/aurl.git", :branch => "develop"
 
@@ -11,11 +12,9 @@ class Aurl < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["GLIDE_HOME"] = HOMEBREW_CACHE/"glide_home/#{name}"
     dir = buildpath/"src/github.com/classmethod/aurl"
     dir.install Dir["*"]
     cd dir do
-      system "glide", "install"
       system "go", "build", "-o", bin/"aurl"
     end
   end
@@ -37,7 +36,7 @@ class Aurl < Formula
   \__\/: . . |  | ' |  | ||  | '   '  : |__
   ," .--.; | :  | : ;  ; |;  : |   |  | '.'|
  /  /  ,.  | '  :  `--'   \  , ;   ;  :    ;
-;  :   .'   \:  ,      .-./---'    |  ,   /  v1.0.1
+;  :   .'   \:  ,      .-./---'    |  ,   /  v1.1.0-SNAPSHOT
 |  ,     .-./ `--`----'             ---`-'
  `--`---'
 
