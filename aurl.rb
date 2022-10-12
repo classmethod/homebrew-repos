@@ -5,25 +5,25 @@
 class Aurl < Formula
   desc ""
   homepage ""
-  version "1.1.1"
+  version "1.1.5"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/classmethod/aurl/releases/download/1.1.1/aurl_1.1.1_Darwin_arm64.tar.gz"
-      sha256 "f714cbd54d5394ce68ce8c9eea449268bb1968b1c080ed857f43787675fe10b4"
+      url "https://github.com/classmethod/aurl/releases/download/1.1.5/aurl_1.1.5_Darwin_arm64.tar.gz"
+      sha256 "95eb6166ad64fb1751bf792335ffeeba7a4e9589a0af2ac18877d14ccd85cdf8"
 
       def install
-        bin.install "some_other_name"
+        bin.install "aurl"
         # bash_completion.install "completions/aurl.bash" => "aurl"
         # ...
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/classmethod/aurl/releases/download/1.1.1/aurl_1.1.1_Darwin_x86_64.tar.gz"
-      sha256 "ec75fad5a6311d95c386a031362a378571ffec2c2204667fcfeb5f102544898c"
+      url "https://github.com/classmethod/aurl/releases/download/1.1.5/aurl_1.1.5_Darwin_x86_64.tar.gz"
+      sha256 "01fb825c3a9cfc6397e6ec8749325320568074413e0043103c850761ff79f1e1"
 
       def install
-        bin.install "some_other_name"
+        bin.install "aurl"
         # bash_completion.install "completions/aurl.bash" => "aurl"
         # ...
       end
@@ -32,21 +32,21 @@ class Aurl < Formula
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/classmethod/aurl/releases/download/1.1.1/aurl_1.1.1_Linux_arm64.tar.gz"
-      sha256 "f8f9b07fae46b8368bdc3f239be5bb196928db146d490bf5dd4f734a9f1390de"
+      url "https://github.com/classmethod/aurl/releases/download/1.1.5/aurl_1.1.5_Linux_arm64.tar.gz"
+      sha256 "1a8fab6bed86d4df322799bd86925591ecafbe3d26c61005b7a8a49ae26c7455"
 
       def install
-        bin.install "some_other_name"
+        bin.install "aurl"
         # bash_completion.install "completions/aurl.bash" => "aurl"
         # ...
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/classmethod/aurl/releases/download/1.1.1/aurl_1.1.1_Linux_x86_64.tar.gz"
-      sha256 "0c4dc3d80a4d56736a37d1c4321d590f6a0435a6883dee1ee33e58ff6e5113e5"
+      url "https://github.com/classmethod/aurl/releases/download/1.1.5/aurl_1.1.5_Linux_x86_64.tar.gz"
+      sha256 "6587a2a8f1639a00d9222652848f82630af27e363d4628a63bf680d206e228ac"
 
       def install
-        bin.install "some_other_name"
+        bin.install "aurl"
         # bash_completion.install "completions/aurl.bash" => "aurl"
         # ...
       end
