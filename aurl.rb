@@ -2,10 +2,10 @@ require "language/go"
 
 class Aurl < Formula
   homepage "https://github.com/classmethod/aurl"
-  url "https://github.com/classmethod/aurl.git", :branch => "develop", :revision => "ccfc067cf6e9e8b161368ca8888a7a2138abc008"
-  version "1.1.0-SNAPSHOT-ccfc067"
+  url "https://github.com/classmethod/aurl.git", :tag => "1.1.0", :revision => "e4b54a91b22d6c75bf12d5a3ca66a382b3c7087f"
+  version "1.1.0"
 
-  head "https://github.com/classmethod/aurl.git", :branch => "develop"
+  head "https://github.com/classmethod/aurl.git", :branch => "master"
 
   depends_on "go" => :build
   depends_on "glide" => :build
@@ -36,7 +36,7 @@ class Aurl < Formula
   \__\/: . . |  | ' |  | ||  | '   '  : |__
   ," .--.; | :  | : ;  ; |;  : |   |  | '.'|
  /  /  ,.  | '  :  `--'   \  , ;   ;  :    ;
-;  :   .'   \:  ,      .-./---'    |  ,   /  v1.1.0-SNAPSHOT
+;  :   .'   \:  ,      .-./---'    |  ,   /  v1.1.0
 |  ,     .-./ `--`----'             ---`-'
  `--`---'
 
