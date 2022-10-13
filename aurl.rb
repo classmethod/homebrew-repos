@@ -5,12 +5,12 @@
 class Aurl < Formula
   desc ""
   homepage ""
-  version "1.1.5"
+  version "1.1.6"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/classmethod/aurl/releases/download/1.1.5/aurl_1.1.5_Darwin_arm64.tar.gz"
-      sha256 "95eb6166ad64fb1751bf792335ffeeba7a4e9589a0af2ac18877d14ccd85cdf8"
+    if Hardware::CPU.intel?
+      url "https://github.com/classmethod/aurl/releases/download/1.1.6/aurl_1.1.6_Darwin_x86_64.tar.gz"
+      sha256 "9779b3a9567eea5248363b950b05a70cf7bd79ee758ee7ce7c734a2c6acb8610"
 
       def install
         bin.install "aurl"
@@ -18,9 +18,9 @@ class Aurl < Formula
         # ...
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/classmethod/aurl/releases/download/1.1.5/aurl_1.1.5_Darwin_x86_64.tar.gz"
-      sha256 "01fb825c3a9cfc6397e6ec8749325320568074413e0043103c850761ff79f1e1"
+    if Hardware::CPU.arm?
+      url "https://github.com/classmethod/aurl/releases/download/1.1.6/aurl_1.1.6_Darwin_arm64.tar.gz"
+      sha256 "abb5072789753ce6467f74760732a4c6dedb93d929eb9195055ef4b17833383d"
 
       def install
         bin.install "aurl"
@@ -32,8 +32,8 @@ class Aurl < Formula
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/classmethod/aurl/releases/download/1.1.5/aurl_1.1.5_Linux_arm64.tar.gz"
-      sha256 "1a8fab6bed86d4df322799bd86925591ecafbe3d26c61005b7a8a49ae26c7455"
+      url "https://github.com/classmethod/aurl/releases/download/1.1.6/aurl_1.1.6_Linux_arm64.tar.gz"
+      sha256 "4ca8f6397987b5f3e089f9c99fefa4f9ba6e845e7a9dd64845f16210f10b66b3"
 
       def install
         bin.install "aurl"
@@ -42,8 +42,8 @@ class Aurl < Formula
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/classmethod/aurl/releases/download/1.1.5/aurl_1.1.5_Linux_x86_64.tar.gz"
-      sha256 "6587a2a8f1639a00d9222652848f82630af27e363d4628a63bf680d206e228ac"
+      url "https://github.com/classmethod/aurl/releases/download/1.1.6/aurl_1.1.6_Linux_x86_64.tar.gz"
+      sha256 "d543770edf9fd0b219e00dfadba35ee562bdd2447815a2b2731c07f1303d5ce9"
 
       def install
         bin.install "aurl"
