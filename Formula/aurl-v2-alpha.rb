@@ -5,20 +5,20 @@
 class AurlV2Alpha < Formula
   desc "URL Command Line Tool with Authentication Support (v2 alpha build)"
   homepage "https://github.com/classmethod/aurl"
-  version "2.0.0-alpha20251208a"
+  version "2.0.0-alpha20251208b"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/classmethod/aurl/releases/download/v2.0.0-alpha20251208a/aurl_Darwin_x86_64.tar.gz"
-      sha256 "b0fb34ca26505fad2b3902ffc8c25a5e85339df8d034e5df2fce94c0fa0d6957"
+      url "https://github.com/classmethod/aurl/releases/download/v2.0.0-alpha20251208b/aurl_Darwin_x86_64.tar.gz"
+      sha256 "3dd7282b51b12570df19f5964e84ec2f8e70ea7f6ab114397727a71cb0c56698"
 
       def install
         bin.install "aurl" => "aurl-v2-alpha"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/classmethod/aurl/releases/download/v2.0.0-alpha20251208a/aurl_Darwin_arm64.tar.gz"
-      sha256 "39ded02dbad761467e764382517cfbfa6af9ef6a6ee4851edc92b1b393de314e"
+      url "https://github.com/classmethod/aurl/releases/download/v2.0.0-alpha20251208b/aurl_Darwin_arm64.tar.gz"
+      sha256 "59bd8b9965d3d3fe472647590c20970af07893c9d42b32a27bce0605a6c79f5e"
 
       def install
         bin.install "aurl" => "aurl-v2-alpha"
@@ -28,15 +28,15 @@ class AurlV2Alpha < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/classmethod/aurl/releases/download/v2.0.0-alpha20251208a/aurl_Linux_x86_64.tar.gz"
-      sha256 "f41189dbd93dac156d5f12afe7dc478c45e6ec6b9ba1cfcf31c57b43338318ac"
+      url "https://github.com/classmethod/aurl/releases/download/v2.0.0-alpha20251208b/aurl_Linux_x86_64.tar.gz"
+      sha256 "58d19aac3599983929fc0cde1b0a433804bf627547135d093f58924c280803be"
       def install
         bin.install "aurl" => "aurl-v2-alpha"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/classmethod/aurl/releases/download/v2.0.0-alpha20251208a/aurl_Linux_arm64.tar.gz"
-      sha256 "21329b87327f858c761fabafed45e824cb20686a9fae2451d056721678299cac"
+      url "https://github.com/classmethod/aurl/releases/download/v2.0.0-alpha20251208b/aurl_Linux_arm64.tar.gz"
+      sha256 "1cdea389c885a5a5d814e6b9383286e8fd886329e1d5c2aeafb59b9e212207cd"
       def install
         bin.install "aurl" => "aurl-v2-alpha"
       end
