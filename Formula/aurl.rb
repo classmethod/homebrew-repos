@@ -5,56 +5,61 @@
 class Aurl < Formula
   desc "URL Command Line Tool with Authentication Support"
   homepage "https://github.com/classmethod/aurl"
-  version "1.1.6"
+  version "2.0.0"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/classmethod/aurl/releases/download/1.1.6/aurl_1.1.6_Darwin_x86_64.tar.gz"
-      sha256 "9779b3a9567eea5248363b950b05a70cf7bd79ee758ee7ce7c734a2c6acb8610"
+      url "https://github.com/classmethod/aurl/releases/download/v2.0.0/aurl_Darwin_x86_64.tar.gz"
+      sha256 "703b092cc84ee6244afc86c6a7269fdef04ff622a2d2965c1b1cc1462111c302"
 
-      def install
+      define_method(:install) do
         bin.install "aurl"
-        # bash_completion.install "completions/aurl.bash" => "aurl"
-        # ...
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/classmethod/aurl/releases/download/1.1.6/aurl_1.1.6_Darwin_arm64.tar.gz"
-      sha256 "abb5072789753ce6467f74760732a4c6dedb93d929eb9195055ef4b17833383d"
+      url "https://github.com/classmethod/aurl/releases/download/v2.0.0/aurl_Darwin_arm64.tar.gz"
+      sha256 "390208b3d6fa2a728ef24104106c0b0f7531936ea2c0a5465e2819c17ac138f5"
 
-      def install
+      define_method(:install) do
         bin.install "aurl"
-        # bash_completion.install "completions/aurl.bash" => "aurl"
-        # ...
       end
     end
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/classmethod/aurl/releases/download/1.1.6/aurl_1.1.6_Linux_arm64.tar.gz"
-      sha256 "4ca8f6397987b5f3e089f9c99fefa4f9ba6e845e7a9dd64845f16210f10b66b3"
-
-      def install
+    if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
+      url "https://github.com/classmethod/aurl/releases/download/v2.0.0/aurl_Linux_x86_64.tar.gz"
+      sha256 "56c0b6fb76ead0f6082375f89ebe058456e18d6245b606bd9a26dc1d1b4ffde8"
+      define_method(:install) do
         bin.install "aurl"
-        # bash_completion.install "completions/aurl.bash" => "aurl"
-        # ...
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/classmethod/aurl/releases/download/1.1.6/aurl_1.1.6_Linux_x86_64.tar.gz"
-      sha256 "d543770edf9fd0b219e00dfadba35ee562bdd2447815a2b2731c07f1303d5ce9"
-
-      def install
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/classmethod/aurl/releases/download/v2.0.0/aurl_Linux_arm64.tar.gz"
+      sha256 "0aa269e3bf8f5e8ad2c2552131d9957812f7e59222eb56d79226c7de88338656"
+      define_method(:install) do
         bin.install "aurl"
-        # bash_completion.install "completions/aurl.bash" => "aurl"
-        # ...
       end
     end
   end
 
+  conflicts_with "aurl-v1", because: "both install 'aurl' binary"
+  conflicts_with "aurl-v2-alpha", because: "both install 'aurl' binary"
+
+  def caveats
+    <<~EOS
+      aurl v2 is not compatible with v1: the command is now `aurl <profile> <url>`,
+      and secrets are stored in the keyring instead of ~/.aurl/profiles.
+
+      Migrating from v1 (or aurl-v2-alpha):
+        aurl migrate
+      To keep using v1:
+        brew uninstall aurl && brew install aurl-v1
+      See https://github.com/classmethod/aurl#migrating-from-v1
+    EOS
+  end
+
   test do
     system "#{bin}/aurl --version"
-    # ...
   end
 end
